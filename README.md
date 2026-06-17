@@ -42,7 +42,6 @@ The software supports multiplanar reconstruction (MPR), ROI analysis, segmentati
 - Threshold segmentation
 - Region growing segmentation
 - Volume calculation
-- Density analysis
 
 ### 3D Visualization
 
@@ -76,23 +75,62 @@ The software supports multiplanar reconstruction (MPR), ROI analysis, segmentati
 - pydicom
 - VTK
 
-## Project Structure
+## Repository Structure
 
-Medical Imaging Workstation
+```text
+Medical-Imaging-Workstation/
 │
-├── core
+├── controllers/
+│   ├── angle_controller.py
+│   ├── cine_controller.py
+│   ├── crosshair_controller.py
+│   ├── hu_probe_controller.py
+│   ├── measurement_controller.py
+│   ├── metadata_controller.py
+│   ├── roi_controller.py
+│   ├── viewport_controller.py
+│   └── window_controller.py
+│
+├── core/
 │   ├── dicom_loader.py
-│   └── image_stack.py
+│   ├── image_stack.py
+│   ├── presets.py
+│   ├── segmentation.py
+│   └── windowing.py
 │
-├── controllers
+├── icons/
+│   ├── 3d.png
+│   ├── app_icon.ico
+│   ├── app_icon.png
+│   ├── circle.png
+│   ├── ellipse.png
+│   ├── free.png
+│   ├── rectangle.png
+│   ├── rule.png
+│   └── segmentation.png
 │
-├── segmentation
+├── screenshots/
+│   ├── 3d_render.png
+│   ├── main_view.png
+│   ├── mpr_viewer.png
+│   ├── roi_analysis.png
+│   └── segmentation.png
 │
-├── viewer
+├── ui/
+│   ├── main_window.py
+│   ├── metadata_panel.py
+│   ├── stats_panel.py
+│   └── viewer_widget.py
 │
-├── rendering
+├── viewer/
+│   ├── viewer.py
+│   └── viewer_3d.py
 │
-└── ui
+├── bone.stl
+├── main.py
+├── README.md
+└── requirements.txt
+```
 
 ## Installation
 
@@ -108,20 +146,33 @@ python main.py
 
 ## Keyboard Shortcuts
 
-| Key | Action |
-|------|---------|
-| ↑ / ↓ | Previous / Next Slice |
-| ← / → | Change Window Preset |
-| M | Measurement Tool |
-| O | Circular ROI |
-| P | Rectangular ROI |
-| E | Elliptical ROI |
-| F | Free ROI |
-| B | Bone Segmentation |
-| L | Lung Segmentation |
-| G | Region Growing |
-| R | Reset View |
-| Space | Cine Mode |
+<table cellspacing="4">
+<tr><td><b>↑ / ↓</b></td><td>Previous / Next Slice</td></tr>
+<tr><td><b>← / →</b></td><td>Change Window Preset</td></tr>
+<tr><td><b>W / X / A / D</b></td><td>Pan</td></tr>
+<tr><td><b>1</b></td><td>Axial Plane</td></tr>
+<tr><td><b>2</b></td><td>Coronal Plane</td></tr>
+<tr><td><b>3</b></td><td>Sagittal Plane</td></tr>
+<tr><td><b>M</b></td><td>Measurement Tool</td></tr>
+<tr><td><b>O</b></td><td>Circular ROI</td></tr>
+<tr><td><b>P</b></td><td>Rectangular ROI</td></tr>
+<tr><td><b>E</b></td><td>Elliptical ROI</td></tr>
+<tr><td><b>F</b></td><td>Free Form ROI</td></tr>
+<tr><td><b>4</b></td><td>Lung 3D View</td></tr>
+<tr><td><b>5</b></td><td>Soft Tissue 3D View</td></tr>
+<tr><td><b>6</b></td><td>Bone 3D View</td></tr>
+<tr><td><b>Space</b></td><td>Cine Mode</td></tr>
+<tr><td><b>R</b></td><td>Reset View</td></tr>
+<tr><td><b>Esc</b></td><td>Close All Tools</td></tr>
+<tr><td><b>B</b></td><td>Bone Threshold Segmentation</td></tr>
+<tr><td><b>L</b></td><td>Lung Threshold Segmentation</td></tr>
+<tr><td><b>G</b></td><td>Region Growing Segmentation</td></tr>
+<tr><td><b>Mouse Wheel</b></td><td>Scroll Slices / Zoom</td></tr>
+<tr><td><b>Left Click</b></td><td>Measurement / ROI / Crosshair</td></tr>
+<tr><td><b>Middle Click</b></td><td>HU Probe</td></tr>
+<tr><td><b>Right Click</b></td><td>Window / Level</td></tr>
+<tr><td><b>Ctrl + Drag</b></td><td>Pan</td></tr>
+</table>
 
 ## STL Export
 
@@ -137,7 +188,7 @@ using Marching Cubes and exported as STL files for:
 
 David Enrique Veloz Renteria
 
-Computer Vision | Medical Imaging | Robotics | AI
+Computer Vision | Medical Imaging 
 
 LinkedIn:
 https://www.linkedin.com/in/davidveloz/?locale=en-US
