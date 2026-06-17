@@ -292,8 +292,8 @@ class MainWindow(QMainWindow):
         self.elliptical_action.setEnabled(True)
         self.free_action.setEnabled(True)
         self.segmentation_action.setEnabled(True)
-        self.bone_density_action.setEnabled(True)
-        self.lung_density_action.setEnabled(True)
+        #self.bone_density_action.setEnabled(True)
+        #self.lung_density_action.setEnabled(True)
     
     def activate_measure(self):
         if not hasattr(self, "viewer"):
